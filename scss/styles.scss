@@ -1,0 +1,110 @@
+:root {
+    --Dark-cyan: hsl(185, 75%, 39%);
+    --Very-dark-desaturated: hsl(229, 23%, 23%);
+    --Dark-grayish: hsl(227, 10%, 46%);
+    --Dark-gray: hsl(0, 0%, 59%);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1 rem = 10 px
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: var(--Dark-cyan);
+    background-image: url('/images/bg-pattern-top.svg'), url('/images/bg-pattern-bottom.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    h1 {
+        margin-bottom: 30px;
+        font-size: 38px;
+    }
+    input {
+        width: 327px;
+        margin-bottom: 50px;
+        font-size: 30px;
+    }
+    &-poke-card {
+        width: 327px;
+        height: 400px;
+    }
+}
+
+.card {
+    background-color: #ffffff;
+    width: 350px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px #00000021;
+    &-header {
+        width: 100%;
+        display: block;
+    }
+    &-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: 1px solid rgba(153, 153, 153, 0.308);
+        &-img {
+            width: 200px;
+            height: 200px;
+            border: 5px solid white;
+            border-radius: 50%;
+            margin-top: calc(-100px - 5px);
+            background-color: white;
+        }
+        &-title {
+            margin-top: 2rem;
+            font-size: 1.8rem;
+            span {
+                color: var(--Dark-gray);
+            }
+        }
+        &-text {
+            color: var(--Very-dark-desaturated);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            span {
+                border-radius: 5px;
+                width: 20px;
+                padding: 5px;
+                font-size: 1.7rem;
+                color: #ffffff;
+            }
+        }
+    }
+    &-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        &-stats {
+            text-align: center;
+            h3 {
+                width: 48px;
+            }
+            p {
+                width: 50px;
+                text-align: center;
+                font-size: 11px;
+            }
+        }
+    }
+}

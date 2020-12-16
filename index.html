@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!--font-family: 'Kumbh Sans', sans-serif;-->
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Profile card component ❤</title>
+</head>
+
+<body>
+    <!------------------------------------------------ PÁGINA WEB ------------------------------------------------>
+    <main class="flex">
+        <h1>BUSCA A TU POKEMON PREFERIDO! 😁</h1>
+        <input type="text" name="buscador" id="buscador">
+
+
+        <div class="flex-poke-card">
+            <!-- Aquí se añade el template-card -->
+        </div>
+    </main>
+
+
+
+
+    <!------------------------------------------------ TEMPLATES ------------------------------------------------>
+    <template id="template-card">
+        <article class="card">
+            <img src="./images/bg-pattern-card.svg" alt="Imagen header-card" class="card-header">
+            <div class="card-body">
+                <img src="./images/image-victor.jpg" alt="Imagen de Victor" class="card-body-img">
+                <h1 class="card-body-title">
+                    Victor chast
+                    <span>26</span>
+                </h1>
+                <p class="card-body-text">
+                    London
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="card-footer-stats">
+                    <h3>80K</h3>
+                    <p> HP</p>
+                </div>
+                <div class="card-footer-stats">
+                    <h3>83K</h3>
+                    <p>Ataque</p>
+                </div>
+                <div class="card-footer-stats">
+                    <h3>1.4K</h3>
+                    <p>Defensa</p>
+                </div>
+                <div class="card-footer-stats">
+                    <h3>1.4K</h3>
+                    <p>Ataque Especial</p>
+                </div>
+                <div class="card-footer-stats">
+                    <h3>1.4K</h3>
+                    <p>Defensa Especial</p>
+                </div>
+                <div class="card-footer-stats">
+                    <h3>1.4K</h3>
+                    <p>Velocidad</p>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <!------------------------------------------------ SCRIPTS ------------------------------------------------>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
