@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 buscador.addEventListener('keyup', (e) => {
     e.preventDefault();
-    searchPokemon();
+    searchPokemon(e.target);
 });
 
 
@@ -46,17 +46,17 @@ const getPokemonByName = async(pokemon) => {
     } catch (error) {
         console.log(error);
     }
+    console.log(data);
     return data;
+
 }
 
-const searchPokemon = async() => {
+const searchPokemon = async(target) => {
     let allPokemon = await getAllPokemon();
+    pokeCard.innerHTML = '';
     Object.values(allPokemon.results).forEach((pokemon) => {
-        if (pokemon.name === buscador.value) {
-            pokeCard.innerHTML = '';
+        if (pokemon.name === target.value) {
             drawPokemonCard(pokemon);
-        } else {
-            pokeCard.innerHTML = '';
         }
     })
 }
@@ -71,6 +71,7 @@ const drawPokemonCard = async(pokemon) => {
             elemento: convertTypesEN_to_ESP(getTypes(datosPokemon.types)),
             color: getColorType(getTypes(datosPokemon.types))
         },
+        exp_base: datosPokemon.base_experience,
         stats: {
             hp: datosPokemon.stats[0].base_stat,
             ataque: datosPokemon.stats[1].base_stat,
@@ -88,8 +89,9 @@ const drawPokemonCard = async(pokemon) => {
     clone.querySelector('.card-body-img').setAttribute('src', newPokemon.img);
     clone.querySelector('.card-body-title').innerHTML = `${newPokemon.nombre}  <span>#${newPokemon.id}</span>`;
 
-    clone.querySelector('.card-body-text').innerHTML = 'Tipo: ';
-    // console.log(Object.values(newPokemon.tipo));
+    clone.querySelector('.card-body-text').innerHTML = `Exp Base: <span>${newPokemon.exp_base}</span>`;
+    clone.querySelector('.card-body-text').innerHTML += '<br><br>';
+    clone.querySelector('.card-body-text').innerHTML += 'Tipo: ';
     for (let i = 0; i < newPokemon.tipo.elemento.length; i++) {
         clone.querySelector('.card-body-text').innerHTML += `<span ${newPokemon.tipo.color[i]}>${newPokemon.tipo.elemento[i]}</span>`;
         clone.querySelector('.card-body-text').innerHTML += ' ';
@@ -197,64 +199,64 @@ const getColorType = (types) => {
     Object.values(types).forEach(type => {
         switch (type) {
             case 'normal':
-                arrayColores.push('style="background:gray"');
+                arrayColores.push('style="background:gray; color:#ffffff""');
                 break;
             case 'fighting':
-                arrayColores.push('style="background:#940000"');
+                arrayColores.push('style="background:#940000; color:#ffffff"');
                 break;
             case 'flying':
-                arrayColores.push('style="background:#58aaca"');
+                arrayColores.push('style="background:#58aaca; color:#ffffff"');
                 break;
             case 'poison':
-                arrayColores.push('style="background:#830094"');
+                arrayColores.push('style="background:#830094; color:#ffffff"');
                 break;
             case 'ground':
-                arrayColores.push('style="background:#94672d"');
+                arrayColores.push('style="background:#94672d; color:#ffffff"');
                 break;
             case 'rock':
-                arrayColores.push('style="background:#704000"');
+                arrayColores.push('style="background:#704000; color:#ffffff"');
                 break;
             case 'bug':
-                arrayColores.push('style="background:#8abe0f"');
+                arrayColores.push('style="background:#8abe0f; color:#ffffff"');
                 break;
             case 'ghost':
-                arrayColores.push('style="background:#8abe0f"');
+                arrayColores.push('style="background:#370047; color:#ffffff"');
                 break;
             case 'steel':
-                arrayColores.push('style="background:#646f7c"');
+                arrayColores.push('style="background:#646f7c; color:#ffffff"');
                 break;
             case 'fire':
-                arrayColores.push('style="background:#f83b01"');
+                arrayColores.push('style="background:#f83b01; color:#ffffff"');
                 break;
             case 'water':
-                arrayColores.push('style="background:#0045e7"');
+                arrayColores.push('style="background:#0045e7; color:#ffffff"');
                 break;
             case 'grass':
-                arrayColores.push('style="background:#06bd00"');
+                arrayColores.push('style="background:#06bd00; color:#ffffff"');
                 break;
             case 'electric':
                 arrayColores.push('style="background:#f1ed00; color:#000000"');
                 break;
             case 'psychic':
-                arrayColores.push('style="background:#7f4581"');
+                arrayColores.push('style="background:#7f4581; color:#ffffff"');
                 break;
             case 'ice':
-                arrayColores.push('style="background:#00f3fb"');
+                arrayColores.push('style="background:#00f3fb; color:#ffffff"');
                 break;
             case 'dragon':
                 arrayColores.push('style="background: linear-gradient(0deg, rgba(34,181,195,0.6783088235294117) 0%, rgba(226,45,253,0.6502976190476191) 100%)"');
                 break;
             case 'dark':
-                arrayColores.push('style="background:#242424"');
+                arrayColores.push('style="background:#242424; color:#ffffff"');
                 break;
             case 'fairy':
-                arrayColores.push('style="background:#c538ae"');
+                arrayColores.push('style="background:#c538ae; color:#ffffff"');
                 break;
             case 'unknown':
-                arrayColores.push('style="background:#555555"');
+                arrayColores.push('style="background:#555555; color:#ffffff"');
                 break;
             case 'shadow':
-                arrayColores.push('style="background:#430249"');
+                arrayColores.push('style="background:#430249; color:#ffffff"');
                 break;
 
             default:

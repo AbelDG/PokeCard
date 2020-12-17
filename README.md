@@ -1,7 +1,8 @@
-## Frontend Mentor - Profile card component
+## Poke Card
 
-![Design preview for the Profile card component coding challenge](./design/desktop-preview.jpg)
+![](resultado.JPG)
 
-Página sencilla donde se muestra el profile de un usuario de una red social.
+Página donde se puede buscar al pokemon deseado. Más de 1000 pokemon !
 
-Tecnologías: HTML5, CSS3, SASS
+Tecnologías: HTML5, CSS3, SASS, JavaScript
+API REST: https://pokeapi.co/
